@@ -5,10 +5,18 @@
 */
 // importamos um módulo interno do node.js
 const util = require('util')
+// esse modulo eh utilizado para transformar a funcao em uma promise
 const obterEnderecoAsync = util.promisify(obterEndereco)
 
+// uma promise permite manter a ordem de execucao de funcoes que dependem do retorno de outra funcao
+// uma promise pode ser resolvida ou rejeitada
+// quando a funcao executa com sucesso a promise eh resolvida
+// quando a execucao da funcao falha a promise eh rejeitada
+// esses dois cenarios podem ser tratados por meio de try/catch, apresentando execucoes diferentes de acordo com o resultado da promise
+// para criar uma promise utilizamos a estrutura: const a = new Promise (function(resolve, reject){}) 
+
 function obterUsuario() {
-    // quando der algum problea -> reject(ERRO)
+    // quando der algum problema -> reject(ERRO)
     // quando sucess -> RESOLV
     return new Promise(function resolvePromise(resolve, reject) {
         setTimeout(function () {
@@ -46,7 +54,11 @@ function obterEndereco(idUsuario, callback) {
 }
 
 // 1o passso adicionar a palavra async -> automaticamente ela retornará uma Promise
+// funcoes assincronas funcionam por meio de Promises
+// a estrutura utilizada para trabalhar com essas funcoes: async/await
+
 main()
+
 async function main() {
     try {
         console.time('medida-promise')
