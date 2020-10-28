@@ -4,7 +4,7 @@
 const axios = require('axios')
 
 // url que sera buscada pela requisicao do axios
-// eh um site que fornece uma api com dados de personagens do star wars
+// é um site que fornece uma api com dados de personagens do star wars
 const URL = `https://swapi.co/api/people`
 
 // funcao assincrona que busca os dados da api utilizando como parametro o nome do personagem
