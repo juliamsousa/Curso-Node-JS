@@ -1,5 +1,11 @@
+-- quando trabalhamos com postgres trabalhamos com tabelas
+-- caso a tabela já exista ela é removida
 DROP TABLE IF EXISTS TB_HEROIS;
+
+-- criacao da tabela
 CREATE TABLE TB_HEROIS (
+    -- id gerado automaticamente, é chave primaria e nao nulo
+    -- sempre que um dado é inserido o id já é gerado automaticamente
      ID INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY    NOT NULL,
      NOME  TEXT    NOT NULL,
      PODER TEXT    NOT NULL
