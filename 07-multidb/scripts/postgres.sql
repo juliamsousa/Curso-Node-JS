@@ -10,19 +10,27 @@ CREATE TABLE TB_HEROIS (
      NOME  TEXT    NOT NULL,
      PODER TEXT    NOT NULL
 );
+
 -- create
+-- insere itens na tabela
 INSERT INTO TB_HEROIS
     (NOME, PODER)
 VALUES
     ('Flash', 'Velocidade'),
     ('Batman', 'Dinheiro'),
     ('Aquaman', 'Marinho');
+
 -- read
+-- lê todos os itens da tabela
 SELECT *
 FROM TB_HEROIS;
+
 -- update
+-- atualiza o nome e o pdoer do dado que possui id 1
 UPDATE TB_HEROIS 
 SET NOME = 'Goku', PODER= 'Deus'
 WHERE ID = 1;
+
 --delete
+-- apaga o heroi com id 2
 DELETE FROM TB_HEROIS WHERE ID = 2;
