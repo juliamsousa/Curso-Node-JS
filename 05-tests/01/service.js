@@ -22,6 +22,7 @@ async function obterPessoas(nome) {
 }
 
 // funcao utilizada no map que retorna os atributos de nome e altura das pessoas buscadas na api
+// com isso os resultados buscados são formatados
 function mapearPessoas(item) {
     return {
         nome: item.name,
