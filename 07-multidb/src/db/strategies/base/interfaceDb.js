@@ -31,7 +31,7 @@ class IDb {
   }
 
   // simula o prototipo de uma funcao abstrata pura (function() = 0)
-  delete(id) {
+  delete(id, item) {
     throw new NotImplementedException();
   }
 

@@ -25,17 +25,21 @@
 //   await client.end();
 // })();
 
+// importacao do sequelize
 const Sequelize = require('sequelize');
+
+// cria uma especie de driver para o sequelize passando dados do banco de dados
 const sequelize = new Sequelize(
-  'herois', //database
+  'heroes', //database
   'erickwendel', // user
   'minhasenhasecreta', //senha
   {
     host: 'localhost',
+    // tipo do driver
     dialect: 'postgres',
     // case sensitive
     quoteIdentifiers: false,
-    // deprecation warning
+    // para de mostrar deprecation warning
     operatorsAliases: false
 
     // dialectOptions: {
@@ -44,44 +48,76 @@ const sequelize = new Sequelize(
   },
 );
 
+// manipulacaoes do banco
 (async () => {
+  // define um modelo para o nosso banco
   const Herois = sequelize.define(
-    'herois',
+    'heroes',
     {
+      // dados do atributo id
       id: {
+        // dado do tipo inteiro
         type: Sequelize.INTEGER,
+        // dado obrigatorio
         required: true,
+        // defiido como chave primaria
         primaryKey: true,
+        // increment automaticamente
         autoIncrement: true,
       },
+      // dados do atributo nome
       nome: {
+        // dado tipo string
         type: Sequelize.STRING,
+        // dado obrigatorio
         required: true,
       },
+      // dados do atributo poder
       poder: {
+        // dado tipo string
         type: Sequelize.STRING,
+        // dado obrigatorio
         required: true,
       },
     },
     {
       //opcoes para base existente
       tableName: 'TB_HEROIS',
+      // nao mudr o nome da tabela
       freezeTableName: false,
+      // nao criar dados automaticos
       timestamps: false,
-
-
     },
   );
 
   // force: true will drop the table if it already exists
+  // sincroniza a funcao
   await Herois.sync();
+
   // Table created
-  const result = await Herois.create({
-    nome: 'John',
-    poder: 'Hancock',
-  });
+  // cria um heroi
+  const result = await Herois.create(
+    {
+      nome: 'Charlize Theron',
+      poder: 'Earring',
+    },
+    // {
+    //   nome: 'Dani',
+    //   poder: 'Tea',
+    // },
+    // {
+    //   nome: 'Jamie',
+    //   poder: 'Coffe',
+    // }
+  );
+
+  // imprime todos os herois com o metodo findAll()
   console.log(
     'result',
+    // o metodo findAll nos da algumas opcoes
+    // nesse caso foi passada uma formatacao especifica para a presentacao dos dados
+    // sem o raw muitas informacoes indesejadas sao trazidas
+    // pela operacao atributes trazemos alguns atributos especificos
     await Herois.findAll({ raw: true, attributes: ['nome', 'poder', 'id'] }),
   );
 })();

@@ -27,7 +27,7 @@ class ContextStrategy extends IDb {
   }
 
   // chama o metodo delete implementado pelo db
-  delete(id) {
+  delete(id, item) {
     return this._database.delete(id, item);
   }
 
