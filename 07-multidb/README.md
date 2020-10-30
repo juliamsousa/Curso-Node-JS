@@ -1,3 +1,10 @@
+<!-- Roda um docker de name postgres -->
+<!-- Cria um usuario e uma senha -->
+<!-- Cria um banco de dados chamado heroes -->
+<!-- Seleciona a porta no qual ele ficara exposto -->
+<!-- -d indica que nao há nada mais a ser executado e o dokcer executara em segundo plano -->
+<!-- Por fim indica o nome da imagem -->
+<!-- Caso exista a imagem na maquina cria o container, caso nao exista executa um pull -->
 docker run \
     --name postgres \
     -e POSTGRES_USER=erickwendel \
@@ -7,6 +14,15 @@ docker run \
     -d \
     postgres
 
+<!-- Mostra os processos de docker que estao rodando na maquina -->
+docker ps
+<!-- Abre a linha de comando do container que executa o postgres -->
+docker exec -it postgres /bin/bash
+
+<!-- Roda uma instancia concorrente chamada adminer -->
+<!-- Pelo link tem permissao para acessar o docker postgres -->
+<!-- Baixa a imagem do adminer que apresenta uma interface de administracao do docker contendo o banco de dados -->
+<!-- Adminer é uma solução acessível via browser para a administração do MySQL e distribuída gratuitamente sob a forma de um arquivo PHP/imagem Docker. -->
 docker run \
     --name adminer \
     -p 8080:8080 \
