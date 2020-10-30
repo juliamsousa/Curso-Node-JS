@@ -11,5 +11,9 @@
   "devDependencies": {
     "mocha": "^5.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  }
 }
