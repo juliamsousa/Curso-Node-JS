@@ -5,6 +5,7 @@
 <!-- -d indica que nao há nada mais a ser executado e o dokcer executara em segundo plano -->
 <!-- Por fim indica o nome da imagem -->
 <!-- Caso exista a imagem na maquina cria o container, caso nao exista executa um pull -->
+## ---- POSTGRES/ADMINER
 docker run \
     --name postgres \
     -e POSTGRES_USER=erickwendel \
@@ -30,6 +31,11 @@ docker run \
     -d \
     adminer
 
+<!-- Cria uma imagem de mongodb -->
+<!-- Adiciona um usuario administrador(root) que tem acesso para criar outros usuarios -->
+<!-- Roda em segundo plano pelo comando -d -->
+<!-- Utiliza a versao 4 do mongodb -->
+<!-- Roda na porta default do mongo -->
 ## ---- MONGODB
 docker run \
     --name mongodb \
@@ -39,13 +45,17 @@ docker run \
     -d \
     mongo:4
 
+<!-- Criacao de um cliente para o banco de dados do mongo -->
+<!-- Tem acesso ao mongo por meio do link -->
+<!-- Mongoclient é uma imagem oficial do mongo que apresenta uma ferramenta de gerenciamento do Mongo -->
 docker run \
     --name mongoclient \
-    -p 3000:3000 \
+    -p 3000:3000 \dockern ps
     --link mongodb:mongodb \
     -d \
     mongoclient/mongoclient
 
+<!-- Faz login no mongo e cria um novo usuario -->
 docker exec -it mongodb \
     mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
     --eval "db.getSiblingDB('herois').createUser({user: 'erickwendel', pwd: 'minhasenhasecreta', roles: [{role: 'readWrite', db: 'herois'}]})"
