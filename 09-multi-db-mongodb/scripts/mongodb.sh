@@ -1,15 +1,14 @@
 use herois
 
-
-// create
+# // create
 db.herois.create({ nome: 'Iron man', poder: 'Rico'})
 
-// read
+# // read
 db.herois.find({})
 
-// update
+# // update
 db.herois.update({_id: id}, {$set: {nome: 'papaleguas'}})
 
-// delete
+# // delete
 db.herois.delete({_id: id})
 
