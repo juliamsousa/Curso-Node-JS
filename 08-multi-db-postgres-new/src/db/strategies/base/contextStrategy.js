@@ -32,8 +32,13 @@ class ContextStrategy extends IDb {
   }
 
   // chama o metodo isConnected implementado pelo db
-  isConnected (){
+  isConnected () {
     return this._database.isConnected();
+  }
+
+  // chama o metodo isConnected implementado pelo db
+  connect () {
+    return this._database.connect();
   }
 }
 

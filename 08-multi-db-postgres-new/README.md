@@ -6,14 +6,7 @@
 <!-- Por fim indica o nome da imagem -->
 <!-- Caso exista a imagem na maquina cria o container, caso nao exista executa um pull -->
 ## ---- POSTGRES/ADMINER
-docker run \
-    --name postgres \
-    -e POSTGRES_USER=erickwendel \
-    -e POSTGRES_PASSWORD=minhasenhasecreta \
-    -e POSTGRES_DB=heroes \
-    -p 5432:5432 \
-    -d \
-    postgres
+docker run --name postgres -e POSTGRES_USER=erickwendel -e POSTGRES_PASSWORD=minhasenhasecreta -e POSTGRES_DB=heroes -p 5432:5432 -d postgres
 
 <!-- Mostra os processos de docker que estao rodando na maquina -->
 docker ps
@@ -24,12 +17,7 @@ docker exec -it postgres /bin/bash
 <!-- Pelo link tem permissao para acessar o docker postgres -->
 <!-- Baixa a imagem do adminer que apresenta uma interface de administracao do docker contendo o banco de dados -->
 <!-- Adminer é uma solução acessível via browser para a administração do MySQL e distribuída gratuitamente sob a forma de um arquivo PHP/imagem Docker. -->
-docker run \
-    --name adminer \
-    -p 8080:8080 \
-    --link postgres:postgres \
-    -d \
-    adminer
+docker run --name adminer -p 8080:8080 --link postgres:postgres -d adminer
 
 <!-- Cria uma imagem de mongodb -->
 <!-- Adiciona um usuario administrador(root) que tem acesso para criar outros usuarios -->
