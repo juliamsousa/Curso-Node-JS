@@ -20,8 +20,12 @@ describe('PostgreSQL Strategy', function() {
   });
 
   it('PostgresSQL connection', async () => {
+    // isConnected retorna true ou false
     const result = await context.isConnected();
-    equal(result, true);
+
+    // assert do estado resultante e do estado esperado
+    deepEqual(result, 1)
+    // equal(result, true);
   });
 
   it('cadastrar', async () => {

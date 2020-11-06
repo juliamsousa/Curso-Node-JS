@@ -1,8 +1,13 @@
+// importa o assert 
 const assert = require('assert')
+// importa a api criada
 const api = require('./../api')
+
+// variaveis criadas para serem utilizadas nos testes
 let app = {}
 let MOCK_ID = ""
 
+// funcao que injeta codigo
 function cadastrar() {
     return app.inject({
         method: 'POST',
@@ -14,22 +19,39 @@ function cadastrar() {
     });
 }
 
+// criacao da suite principal de testes da API Herois
 describe.only('API Heroes test suite', function ()  {
+    // para podermos utilizar o this nesse contexto temos que utilizar function
+    // caso utilizassemos uma arrow function perderiamos o contexto
+    
+    // executa as funcoes antes de tudo para realizar os testes
     this.beforeAll(async () => {
+        this.timeout(Infinity)
+        // aguarda a API(servidor) ser inicializada
         app = await api
+
         const result = await cadastrar()
         
         MOCK_ID = JSON.parse(result.payload)._id
     })
 
+    // testa a funcao listar na rota /herois
     it('listar /heroes', async () => {
+        // injeta uma rota, simulando a acao do ususario
+        // insere na nossa rota o metodo get da url /herois
         const result = await app.inject({
             method: 'GET',
             url: '/herois'
         })
+
+        // retorna o codigo de status da requisicao
         const statusCode = result.statusCode 
         
+        // verifica se o codigo de status é de sucesso
         assert.deepEqual(statusCode, 200)
+
+        // verifica se o retorno da nossa requisicao é um Array
+        // o ideal é ter apenas uma assrcao por suite
         assert.ok(Array.isArray(JSON.parse(result.payload)))
     })
 
@@ -65,6 +87,4 @@ describe.only('API Heroes test suite', function ()  {
         assert.deepEqual(JSON.parse(result.payload).nModified, 1)
 
     })
-
 })
-

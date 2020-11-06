@@ -23,6 +23,7 @@ let MOCK_HEROI_ATUALIZAR_ID = '';
 let context = {}
 
 describe('MongoDB Suite de testes', function () {
+    this.timeout(Infinity)
     this.beforeAll(async () => {
         const connection = MongoDb.connect()
         context = new Context(new MongoDb(connection, HeroSchema))

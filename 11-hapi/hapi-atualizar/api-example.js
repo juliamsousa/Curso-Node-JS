@@ -1,3 +1,6 @@
+// hapi é um framework concorrente ao express que permite fazer respostas
+// possui plugins nos quais eles podem se enxergar
+// npm i hapi
 const Hapi = require('hapi')
 const Context = require('./src/db/strategies/base/contextStrategy')
 const MongoDB = require('./src/db/strategies/mongoDbStrategy')

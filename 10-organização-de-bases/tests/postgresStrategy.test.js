@@ -57,10 +57,14 @@ describe('PostgreSQL Strategy', function() {
 
   // subsuit de testes para verificar a conexao do banco
   it('PostgresSQL connection', async () => {
-    // chamada da funcao de conexao do banco
     const result = await context.isConnected();
-    // verifica se o retorno da funcao é true
-    equal(result, true);
+
+    // definicao do estado esperado
+    const expected = 'Conectado'
+
+    // assert do estado resultante e do estado esperado
+    deepEqual(result, expected)
+    // equal(result, true);
   });
 
   // subsuit de teste da funcao de cadastrar

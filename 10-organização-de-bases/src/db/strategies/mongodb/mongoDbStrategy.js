@@ -42,7 +42,6 @@ class MongoDB extends ICrud {
 
         // retorna o estado retornado pela promise
         return STATUS[this._connection.readyState]
-
     }
 
     // 3o
