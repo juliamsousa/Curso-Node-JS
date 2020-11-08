@@ -1,4 +1,5 @@
 const BaseRoute = require('./base/baseRoute')
+// joi é uma ferramenta do hapi que permite fazer validacoes, evitando o uso continuo de if else
 const Joi = require('joi')
 class HeroRoutes extends BaseRoute {
     constructor(db) {
@@ -15,13 +16,16 @@ class HeroRoutes extends BaseRoute {
             }
         }
     }
+    
     create() {
         return {
             path: '/herois',
             method: 'POST',
             config: {
-
+                // validacao do joi
+                // caso falhe na validacao nao executa o handler
                 validate: {
+                    // fail action retorna o erro
                     failAction: (request, h, err) => {
                         throw err;
                       },
