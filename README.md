@@ -12,6 +12,7 @@ Introdução ao Node.js
 Conhecendo o gerenciador de pacotes NPM
 Começando um projeto Node.js
 
+
 ###### Módulo 1 Sincronia de Funções Javascript
 
 Introdução ao Capitulo
@@ -24,6 +25,7 @@ Resolução de promises com Async/Await
 Introdução à manipulação de eventos com EventEmitter
 Trabalhando com Eventos com a classe EventEmitter
 
+
 ###### Módulo 2 Manipulação de Listas
 
 Introdução ao Capitulo
@@ -32,10 +34,12 @@ Criando nosso proprio Array.Map
 Criando nosso proprio Array.Filter
 Criando nosso proprio Array.Reduce
 
+
 ###### Módulo 3 Introdução a desenvolvimento de testes automatizados
 
 Introdução a desenvolvimento de testes automatizados em Javascript
 Ambiente e configuração do ciclo de testes
+
 
 ###### Módulo 4 Node.js além da Web - Criando ferramentas de linha de comando
 
@@ -46,12 +50,14 @@ Manipulando arquivos - UPDATE
 Manipulando arquivos - DELETE
 Criando ferramentas de linha de comando com Commander
 
+
 ###### Módulo 5 Bancos de Dados - Nosso projeto Multi-banco de dados
 
 Criando projetos multi-banco de dados
 Trabalhando com o padrão Strategy para Multi DataSources
 Design Patterns - Strategy
 Demonstração multi datasources com strategy design pattern
+
 
 ###### Módulo 6 Introdução ao Postgres e Bancos Relacionais
 
@@ -63,6 +69,7 @@ Listando Heróis - READ
 Atualizando Heróis - UPDATE
 Removendo Heróis - DELETE
 
+
 ###### Módulo 7 MongoDB e Bancos Não-Relacionais (NoSQL)
 
 Introdução ao MongoDB e Bancos Não-Relacionais (NoSQL)
@@ -73,10 +80,12 @@ Listando Heróis - READ
 Atualizando Heróis - UPDATE
 Removendo Heróis - DELETE
 
+
 ###### Módulo 8 Refatorando nosso projeto para bancos de dados multi-schemas
 
 Refatorando a estratégia de MongoDB para multi-schemas
 Refatorando a estratégia de Postgres para multi-schemas
+
 
 ###### Módulo 9 Node.js e Web Services - Criando serviços profissionais com Hapi.js
 
@@ -91,9 +100,11 @@ Atualizando Heróis - PATCH / PUT
 Removendo Heróis - DELETE
 Código fonte do capítulo
 
+
 ###### Módulo 10 Documentação de Serviços com Swagger
 
 Adicionando Swagger ao nosso Serviço
+
 
 ###### Módulo 11 Autenticação com Json Web Token
 
@@ -103,7 +114,8 @@ Configurando o JWT - plugins, testes e rota de login
 Adicionando Hapi-JWT ao nosso Serviço de herois
 Criando o modulo de autenticação de usuarios e hash de senha com bcrypt
 
-###### Módulo 12 Publicação de serviços na Web
+
+###### **Módulo 12 Publicação de serviços na Web**
 
 Introdução ao Capitulo
 Trabalhando com multi-environments (development, production)
