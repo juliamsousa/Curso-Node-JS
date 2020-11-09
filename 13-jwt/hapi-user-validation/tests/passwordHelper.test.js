@@ -14,8 +14,9 @@ describe('UserHelper test suite', function () {
         // console.log('result', result)
         assert.ok(result.length > 10);
     });
+    // verifica se o hash pertence a senha
     it('deve comparar uma senha e seu hash', async () => {
-        const result = PasswordHelper.comparePassword(SENHA, HASH)
+        const result = await PasswordHelper.comparePassword(SENHA, HASH)
         assert.ok(result)
     })
 

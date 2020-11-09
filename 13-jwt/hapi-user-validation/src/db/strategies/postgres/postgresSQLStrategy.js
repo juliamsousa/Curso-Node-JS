@@ -63,6 +63,11 @@ class PostgreSQLStrategy extends IDb {
   }
 
   update(id, item, upsert = false) {
+    // faz uma verificacao se o dado ja existe ou nao
+    // com a autenticacao daria problema pois os dados devem ser unicos
+    // upsert: insere um novo dado se nao existe um com a mesma chave primaria ou atualiza se a chave é encontrada
+    // com o update isso nos traria erros
+    // define qual metodo sera utilizado
     const fn = upsert ? 'upsert' : 'update'
     return this._db[fn](item, {
       where: {

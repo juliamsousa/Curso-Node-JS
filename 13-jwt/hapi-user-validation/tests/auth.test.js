@@ -58,6 +58,7 @@ describe('Auth test suite', function () {
         });
         const statusCode = result.statusCode
 
+        // erro 401: nao autorizado
         assert.deepEqual(statusCode, 401)
         assert.deepEqual(JSON.parse(result.payload).error, "Unauthorized")
     })

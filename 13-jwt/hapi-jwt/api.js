@@ -43,19 +43,23 @@ async function main() {
             options: swaggerConfig
         }
     ])
+    // cria uma estrategia para a autenticacao
+    // nome jwt com schema jwt
     app.auth.strategy('jwt', 'jwt', {
         key: MINHA_CHAVE_SECRETA,
         // options: {
         //     expiresIn: 30
         // },
         validate: (dado, request) => {
+            // verifica no banco se o usuario continua ativo
+            // é possivel fazer qualquer tipo de verifiacao necessaria
             return {
                 isValid: true
             }
         }
     })
 
-
+    // toda api usa por default o schema 'jwt' 
     app.auth.default('jwt')
 
 
