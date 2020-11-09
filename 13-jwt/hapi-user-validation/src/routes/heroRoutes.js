@@ -14,7 +14,12 @@ class HeroRoutes extends BaseRoute {
             config: {
                 tags: ['api'],
                 description: 'listar herois',
-                notes: 'retorna a base inteira de herois'
+                notes: 'retorna a base inteira de herois',
+                validate: {
+                    headers: Joi.object({
+                        authorization: Joi.string().required()
+                    }).unknown()
+                }
             },
             handler: (request, headers) => {
                 return this.db.read()
@@ -33,6 +38,9 @@ class HeroRoutes extends BaseRoute {
                     failAction: (request, h, err) => {
                         throw err;
                     },
+                    headers: Joi.object({
+                        authorization: Joi.string().required()
+                    }).unknown(),
                     payload: {
                         nome: Joi.string().max(100).required(),
                         poder: Joi.string().max(30).required()
@@ -58,6 +66,9 @@ class HeroRoutes extends BaseRoute {
                     failAction: (request, h, err) => {
                         throw err;
                     },
+                    headers: Joi.object({
+                        authorization: Joi.string().required()
+                    }).unknown(),
                     params: {
                         id: Joi.string().required()
                     },
@@ -80,15 +91,16 @@ class HeroRoutes extends BaseRoute {
             path: '/herois/{id}',
             method: 'DELETE',
             config: {
-                // configuracoes do swagger
                 tags: ['api'],
                 description: 'remover herois',
                 notes: 'remove um heroi por id',
-
                 validate: {
                     failAction: (request, h, err) => {
                         throw err;
                     },
+                    headers: Joi.object({
+                        authorization: Joi.string().required()
+                    }).unknown(),
                     params: {
                         id: Joi.string().required()
                     }

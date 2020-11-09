@@ -14,7 +14,9 @@ class HeroRoutes extends BaseRoute {
             config: {
                 tags: ['api'],
                 description: 'listar herois',
-                notes: 'retorna a base inteira de herois'
+                notes: 'retorna a base inteira de herois',
+                validate: {
+                }
             },
             handler: (request, headers) => {
                 return this.db.read()
@@ -80,11 +82,9 @@ class HeroRoutes extends BaseRoute {
             path: '/herois/{id}',
             method: 'DELETE',
             config: {
-                // configuracoes do swagger
                 tags: ['api'],
                 description: 'remover herois',
                 notes: 'remove um heroi por id',
-
                 validate: {
                     failAction: (request, h, err) => {
                         throw err;
