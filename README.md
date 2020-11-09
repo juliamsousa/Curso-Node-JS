@@ -5,12 +5,12 @@ Repositório contendo códigos desenvolvidos por Erick Wendel no seu curso de No
 
 ### Módulo 0 Introdução ao Curso
 
-*Introdução ao Curso e Objetivos
-Tópicos abordados - O que aprenderei ?
-Instalação e Configuração
-Introdução ao Node.js
-Conhecendo o gerenciador de pacotes NPM
-Começando um projeto Node.js
+* Introdução ao Curso e Objetivos
+* Tópicos abordados - O que aprenderei ?
+* Instalação e Configuração
+* Introdução ao Node.js
+* Conhecendo o gerenciador de pacotes NPM
+* Começando um projeto Node.js
 
 
 ### Módulo 1 Sincronia de Funções Javascript
