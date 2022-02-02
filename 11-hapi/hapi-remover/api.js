@@ -27,4 +27,7 @@ async function main() {
 
     return app;
 }
-module.exports = main()
+
+    main();
+
+// module.exports = main()
